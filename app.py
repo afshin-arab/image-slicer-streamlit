@@ -68,7 +68,8 @@ function exportLines() {{
 </html>
 """
 
-result = components.html(canvas_html, height=image.height + 100, scrolling=False)
+canvas_height = min(3000, int(image.height) + 100)
+result = components.html(canvas_html, height=canvas_height, scrolling=False)
 
 if isinstance(result, dict) and "horizontal" in result:
     st.success("✅ Received crop line positions.")
